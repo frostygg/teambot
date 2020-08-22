@@ -8,8 +8,7 @@ import * as figlet from 'figlet';
 import * as package_json from './package.json';
 let name = package_json.name;
 
-let client: Commando.CommandoClient;
-client = new Commando.CommandoClient(
+var client: Commando.CommandoClient = new Commando.CommandoClient(
     {
         owner: config.owner,
         commandPrefix: config.prefix,
@@ -42,8 +41,10 @@ client.on('ready', async () => {
 });
 
 client.registry
-    .registerDefaults()
+    .registerDefaultTypes()
+    .registerDefaultGroups()
+    .registerDefaultCommands({help: true})
     .registerCommandsIn(path.join(__dirname, 'commands'))
     .unknownCommand = null;
 
-client.login(config.token)
+client.login(config.token);

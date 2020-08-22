@@ -21,5 +21,11 @@
         "#type": "options: PLAYING, WATCHING, STREAMING, LISTENING",
         "type": "PLAYING",
         "text": "a game"
+    },
+
+    "#roles": "Set your team role IDs here.",
+    "roles": {
+        "red": "000000000000000000",
+        "blue": "000000000000000000"
     }
 }

@@ -13,14 +13,14 @@ module.exports = class JoinCommand extends Commando.Command {
             args: [
                 {
                     key: 'team',
-                    prompt: 'Which team to join? (Red or Blue)',
+                    prompt: 'Which team to join? (`red` or `blue`)',
                     type: 'string',
                     oneOf: ['red', 'blue']
                 }
             ],
             throttling: {
                 usages: 1,
-                duration: 600
+                duration: 120
             }
         });
     }

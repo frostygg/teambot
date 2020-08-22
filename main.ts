@@ -42,6 +42,9 @@ client.on('ready', async () => {
 
 client.registry
     .registerDefaultTypes()
+    .registerGroups([
+        ['teams', 'Penguin Games teams']
+    ])
     .registerDefaultGroups()
     .registerDefaultCommands({help: true})
     .registerCommandsIn(path.join(__dirname, 'commands'))

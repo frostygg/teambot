@@ -2,7 +2,7 @@ import oneLine from 'common-tags';
 import * as Commando from 'discord.js-commando';
 import { Message } from 'discord.js';
 
-export class JoinTeam extends Commando.Command {
+module.exports = class JoinCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'join',
@@ -26,15 +26,15 @@ export class JoinTeam extends Commando.Command {
     }
 
     async run(msg, { team }) {
-        if (msg.member.roles.get(config.roles.red) == undefined &&
-            msg.member.roles.get(config.roles.blue) == undefined)
+        if (msg.member.roles.cache.has(config.roles.red) == false &&
+            msg.member.roles.cache.has(config.roles.blue) == false)
         {
             switch(team) {
                 case 'red':
-                    msg.member.addRole(config.roles.red);
+                    msg.member.roles.add(config.roles.red);
                     return msg.reply("You are now in the red team.");
                 case 'blue':
-                    msg.member.addRole(config.roles.blue);
+                    msg.member.roles.add(config.roles.blue);
                     return msg.reply("You are now in the blue team.");
             }
         } else {
